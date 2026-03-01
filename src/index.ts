@@ -6,7 +6,7 @@ const app = Fastify({ logger: true });
 
 await app.register(cors, { origin: "*" });
 
-app.get("/forecast", async (request, reply) => {
+app.get("/forecast", async (_, reply) => {
   try {
     const data = await getForecast();
     return reply.send(data);
