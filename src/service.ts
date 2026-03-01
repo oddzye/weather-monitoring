@@ -1,7 +1,8 @@
 import { YrResponseSchema } from "./schema.js";
-import { Cache, ForecastResponse } from "./types.js";
+import { Cache } from "./types.js";
+import { ForecastResponse } from "./forecast/forecast.schema.js";
 import { API_URL, USER_AGENT, TARGET_HOUR, CACHE_TTL } from "./config.js";
-import { buildForecastResponse } from "./forecast.mapper.js";
+import { buildForecastResponse } from "./forecast/forecast.mapper.js";
 
 let cache: Cache<ForecastResponse> = { data: null, fetchedAt: 0 };
 
@@ -14,6 +15,8 @@ export async function getForecast() {
   }
 
   console.log("Fetching data from yr.no...");
+
+  console.log("USER_AGENT:", USER_AGENT);
 
   const yrNoResponse = await fetch(API_URL, {
     headers: { "User-Agent": USER_AGENT },
@@ -30,5 +33,7 @@ export async function getForecast() {
   const forecastResponse = buildForecastResponse(timeseries, TARGET_HOUR);
 
   cache = { data: forecastResponse, fetchedAt: Date.now() };
+
+  console.log(JSON.stringify(forecastResponse, null, 2));
   return forecastResponse;
 }

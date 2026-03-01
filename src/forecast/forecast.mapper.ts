@@ -1,6 +1,6 @@
-import { HourlyTemperature, ForecastResponse } from "./types.js";
-import { YrEntry } from "./schema.js";
-import { dateFormatter, hourFormatter } from "./time.js";
+import { HourlyTemperature, ForecastResponse } from "./forecast.schema.js";
+import { YrEntry } from "../schema.js";
+import { dateFormatter, hourFormatter } from "../time.js";
 
 export const getMapHourlyTemperatureByDate = (timeseries: YrEntry[]) => {
   const mapHourlyTemperatureByDate: Record<string, HourlyTemperature[]> = {};
@@ -59,7 +59,7 @@ export const buildForecastResponse = (
       return {
         date,
         temperature: closestHourlyTemperature.temperature,
-        unit: "celsius" as const,
+        unit: "celsius",
         hour: closestHourlyTemperature.hour,
       };
     },

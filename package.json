@@ -22,6 +22,9 @@
   "homepage": "https://github.com/oddzye/weather-monitoring#readme",
   "dependencies": {
     "@fastify/cors": "^11.2.0",
+    "@fastify/swagger": "^9.7.0",
+    "@fastify/swagger-ui": "^5.2.5",
+    "@sinclair/typebox": "^0.34.48",
     "fastify": "^5.7.4",
     "zod": "^4.3.6"
   },
