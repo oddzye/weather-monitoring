@@ -57,5 +57,5 @@ Open Swagger UI:
 
 Build and run using Docker:
 
-1. Create an image `docker build -t belgrade-weather.`
+1. Create an image `docker build -t belgrade-weather .`
 2. Run image in a container `docker run -p 3000:3000 belgrade-weather`
