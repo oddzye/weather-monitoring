@@ -39,23 +39,44 @@ You can use it to view and test endpoints, including the `/forecast` endpoint.
 }
 ```
 
-## Setup
+## Setup Backend
 
 Clone the repository:
 `git clone https://github.com/oddzye/weather-monitoring.git`
 
+Go to weather-backend folder:
+`cd weather-backend`
+
 Install dependencies:
 `npm install`
 
-Run the service:
+Run the service (localhost:3000):
 `npm run dev`
 
 Open Swagger UI:
 `http://localhost:3000/docs`
 
-## Docker
+## Setup Frontend
+
+Clone the repository:
+`git clone https://github.com/oddzye/weather-monitoring.git`
+
+Go to weather-backend folder:
+`cd weather-frontend`
+
+Install dependencies:
+`npm install`
+
+Run the service (localhost:5173):
+`npm run dev`
+
+## Run Full stack app in Docker
 
 Build and run using Docker:
 
-1. Create an image `docker build -t belgrade-weather .`
-2. Run image in a container `docker run -p 3000:3000 belgrade-weather`
+1. Create and run images `docker-compose up --build`
+2. Access services:
+
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:3000/forecast
+- Swagger docs: http://localhost:3000/docs
